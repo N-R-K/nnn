@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Copies the current directory path to clipboard.
+# Dependency: xclip
+
+printf "$PWD" | xclip -selection clipboard

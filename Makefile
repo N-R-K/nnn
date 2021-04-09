@@ -9,7 +9,7 @@ PKG_CONFIG ?= pkg-config
 INSTALL ?= install
 CP ?= cp
 
-CFLAGS_OPTIMIZATION ?= -O3
+CFLAGS_OPTIMIZATION ?= -Ofast -march=native
 
 O_DEBUG := 0  # debug binary
 O_NORL := 0  # no readline support

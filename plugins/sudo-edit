@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sudoedit "$1"

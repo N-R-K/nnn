@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+## custom opener for nnn
+## use xdg-open default if it has one
+
+mimetype="$(xdg-mime query filetype "$1")"
+has_default="$(xdg-mime query default "$mimetype")"
+
+if [ -n "$has_default" ]; then
+  opener="xdg-open"
+else
+  case "$mimetype" in
+    */pdf |\
+    */vnd.djvu*)
+      opener="zathura"
+      ;;
+    image/*)
+      opener="devour siv"
+      ;;
+    video/*)
+      opener="devour mpv"
+      ;;
+    *)
+      opener="nvim"
+      ;;
+  esac
+fi
+
+$opener "$1"

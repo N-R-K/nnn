@@ -3,7 +3,7 @@
 ## custom opener for nnn
 ## use xdg-open default if it has one
 
-mimetype="$(xdg-mime query filetype "$1")"
+mimetype="$(file -bL --mime-type -- "${1}")"
 has_default="$(xdg-mime query default "$mimetype")"
 
 if [ -n "$has_default" ]; then

@@ -178,7 +178,7 @@ static struct key bindings[] = {
 	{ '`',            SEL_CDROOT },
 	/* Leader key */
 	{ 'b',            SEL_BMOPEN },
-	{ CONTROL('_'),   SEL_BMOPEN },
+	{ CONTROL('B'),   SEL_BMOPEN },
 	/* Connect to server over SSHFS */
 	{ 'c',            SEL_REMOTE },
 	/* Cycle contexts in forward direction */

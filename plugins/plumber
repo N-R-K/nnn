@@ -13,7 +13,8 @@ case "$mimetype" in
   image/*)
     opener="devour siv"
     ;;
-  video/*)
+  video/* |\
+  audio/*)
     opener="devour mpv"
     ;;
   *)

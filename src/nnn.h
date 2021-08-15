@@ -134,6 +134,7 @@ static struct key bindings[] = {
 	/* Back */
 	{ KEY_LEFT,       SEL_BACK },
 	{ 'h',            SEL_BACK },
+	{ 'H',            SEL_BACK },
 	/* Inside or select */
 	{ KEY_ENTER,      SEL_OPEN },
 	{ '\r',           SEL_OPEN },

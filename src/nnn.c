@@ -3496,6 +3496,7 @@ static int filterentries(char *path, char *lastname)
 				case '@': // fallthrough /* Visit start dir */
 				case ']': // fallthorugh /* Prompt key */
 				case '`': // fallthrough /* Visit / */
+				case 'H': // fallthrough /* Go back / */
 				case '~': /* Go HOME */
 					goto end;
 				}

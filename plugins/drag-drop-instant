@@ -4,9 +4,10 @@ SELECTION=${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection}
 DND="dragon"
 DND_ARG="-a -x -T"
 
-[ -s "$SELECTION" ] &&
-  TARGET=$(sed -z 's|'"$PWD/"'| |g;' < "$SELECTION") ||
-  TARGET="$1"
+if [ -s "$SELECTION" ]; then
+  sed -z 's|'"$PWD/"'||g;' < "$SELECTION" | xargs -0 setsid -f "$DND" $DND_ARG
+else
+  setsid -f "$DND" $DND_ARG "$1"
+fi
 
-eval setsid -f "$DND" "$DND_ARG" "$TARGET" &&
-  printf "-" > "$NNN_PIPE"
+[ $? -eq 0 ] && printf "-" > "$NNN_PIPE"

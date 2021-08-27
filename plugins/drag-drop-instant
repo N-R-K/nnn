@@ -1,13 +1,12 @@
 #!/bin/sh
 
-SELECTION=${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection}
-DND="dragon"
-DND_ARG="-a -x -T"
+selection=${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection}
+args="-a -x -T"
 
-if [ -s "$SELECTION" ]; then
-  sed -z 's|'"$PWD/"'||g;' < "$SELECTION" | xargs -0 setsid -f "$DND" $DND_ARG
+if [ -s "$selection" ]; then
+  sed -z 's|'"$PWD/"'||g;' < "$selection" | xargs -0 setsid -f dragon ${args}
 else
-  setsid -f "$DND" $DND_ARG "$1"
+  setsid -f dragon ${args} "$1"
 fi
 
 [ $? -eq 0 ] && printf "-" > "$NNN_PIPE"

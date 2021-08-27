@@ -5,8 +5,7 @@ args="-a -x -T"
 
 if [ -s "$selection" ]; then
   sed -z 's|'"$PWD/"'||g;' < "$selection" | xargs -0 setsid -f dragon ${args}
+  printf "-" > "$NNN_PIPE"
 else
   setsid -f dragon ${args} "$1"
 fi
-
-[ $? -eq 0 ] && printf "-" > "$NNN_PIPE"

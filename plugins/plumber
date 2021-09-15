@@ -11,11 +11,11 @@ case "$mimetype" in
     opener="zathura"
     ;;
   image/*)
-    opener="devour siv"
+    opener="swallow siv"
     ;;
   video/* |\
   audio/*)
-    opener="devour mpv"
+    opener="swallow mpv"
     ;;
   *)
     opener="$EDITOR"

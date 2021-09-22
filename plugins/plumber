@@ -1,9 +1,8 @@
 #!/bin/sh
 #
 ## custom opener for nnn
-## use xdg-open default if it has one
 
-mimetype="$(file -bL --mime-type -- "${1}")"
+mimetype="$(file -bL --mime-type -- "$1")"
 
 case "$mimetype" in
   */pdf |\

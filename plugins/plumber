@@ -21,4 +21,9 @@ case "$mimetype" in
     ;;
 esac
 
-$opener "$1"
+if [ "$opener" = "swallow siv" ] && [ -s "$NNN_SEL" ]; then
+  xargs -0 swallow nsxiv -b -s d -a < "$NNN_SEL"
+  :> "$NNN_SEL"
+else
+  $opener "$1"
+fi

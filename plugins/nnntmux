@@ -1,0 +1,9 @@
+#!/bin/sh
+
+NNN_PLUG="$(echo "$NNN_PLUG" | sed 's|tabbed|tui|')l:nnntmux;"
+
+if [ -z "$TMUX" ]; then
+  tmux new-session "tmux bind L split-window -h nnn; nnn"
+else
+  tmux split-window -h "nnn"
+fi

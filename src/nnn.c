@@ -7258,13 +7258,13 @@ nochange:
 			}
 
 #ifndef NOFIFO
-			if (g_state.fifomode && (sel == SEL_OPEN)) {
+			if (g_state.fifomode) {
 				send_to_explorer(&presel); /* Write selection to explorer fifo */
 				break;
 			}
 #endif
 			/* If opened as vim plugin and Enter/^M pressed, pick */
-			if (g_state.picker && (sel == SEL_OPEN)) {
+			if (g_state.picker) {
 				if (nselected == 0) /* Pick if none selected */
 					appendfpath(newpath, mkpath(path, pent->name, newpath));
 				return EXIT_SUCCESS;

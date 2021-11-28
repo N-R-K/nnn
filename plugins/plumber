@@ -16,6 +16,12 @@ case "$mimetype" in
   audio/*)
     opener="swallow mpv"
     ;;
+  application/x-rar |\
+  application/zip)
+    if [ "${1##*.}" = "cbr" ] || [ "${1##*.}" = "cbz" ] ; then
+      opener="zathura"
+    fi
+    ;;
   *)
     opener="$EDITOR"
     ;;

@@ -28,6 +28,16 @@ exit_status=0
 
 dst_file=$(mktemp "$TMPDIR/.nnnXXXXXX")
 
+# BSD sed doesn't have --version
+if sed --version >/dev/null 2>&1 ; then
+    gsed="sed"
+elif gsed --version >/dev/null 2>&1 ; then
+    gsed="gsed"
+else
+    printf ".nmv requires GNU sed\n" >/dev/stderr
+    exit 1
+fi
+
 if [ -s "$selection" ]; then
 	printf "Rename 'c'urrent / 's'election? "
 	read -r resp
@@ -144,7 +154,7 @@ while read -r num name; do
 		else
 			if [ -d "$name" ]; then
 				for key in "${!items[@]}"; do
-					items[$key]=$(printf "%s" "${items[$key]}" | sed "s|^$src\(\$\|\/\)|$name\1|")
+					items[$key]=$(printf "%s" "${items[$key]}" | $gsed "s|^$src\(\$\|\/\)|$name\1|")
 				done
 
 				if [ "$VERBOSE" -ne 0 ]; then

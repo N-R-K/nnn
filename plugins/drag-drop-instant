@@ -4,8 +4,8 @@ selection=${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection}
 args="-a -x -T"
 
 if [ -s "$selection" ]; then
-  xargs -0 setsid -f dragon $args < "$selection"
+  { xargs -0 setsid -f dragon $args < "$selection"; } >/dev/null 2>&1
   printf "-" > "$NNN_PIPE"
 else
-  setsid -f dragon $args "$1"
+  setsid -f dragon $args "$1" >/dev/null 2>&1
 fi

@@ -9,7 +9,20 @@ PKG_CONFIG ?= pkg-config
 INSTALL ?= install
 CP ?= cp
 
-CFLAGS_OPTIMIZATION ?= -Ofast -march=native
+O_BASIC       = -pipe -march=native -Ofast
+O_LTO         = -flto=auto -fuse-linker-plugin
+O_GRAPHITE    = -fgraphite-identity -floop-nest-optimize
+O_IPAPTA      = -fipa-pta
+O_SEMINTERPOS = -fno-semantic-interposition
+O_NOCOMMON    = -fno-common
+O_NOPLT       = -fno-plt
+O_NOPIE       = -no-pie
+O_NOSSP       = -fno-stack-protector
+OFLAGS = $(O_BASIC) $(O_LTO) $(O_GRAPHITE) $(O_IPAPTA) \
+         $(O_SEMINTERPOS) $(O_NOCOMMON) $(O_NOPLT) \
+         $(O_NOPIE) $(O_NOSSP) \
+
+CFLAGS_OPTIMIZATION ?= $(OFLAGS)
 
 O_DEBUG := 0  # debug binary
 O_NORL := 0  # no readline support

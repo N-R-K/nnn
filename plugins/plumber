@@ -3,6 +3,7 @@
 ## custom opener for nnn
 
 mimetype="$(file -bL --mime-type -- "$1")"
+opener="$EDITOR"
 
 case "$mimetype" in
   */pdf |\
@@ -21,9 +22,6 @@ case "$mimetype" in
     if [ "${1##*.}" = "cbr" ] || [ "${1##*.}" = "cbz" ] ; then
       opener="zathura"
     fi
-    ;;
-  *)
-    opener="$EDITOR"
     ;;
 esac
 

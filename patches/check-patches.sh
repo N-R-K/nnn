@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Usage: ./misc/test/check-patches.sh
+# Usage: CC=tcc ./misc/test/check-patches.sh
 #
 # Bash script that checks for any of the patches failing to apply.
 # Read patches/README.md for more information.
@@ -11,6 +11,8 @@ z=$(( 1 << ${#patches[@]} ))
 pid=$$
 ret=0
 trap 'ret=1' SIGUSR1
+
+[ "$CC" != "tcc" ] && echo "[INFO]: Consider using tcc for faster execution"
 
 for ((n=1; n < z; ++n)); do
     for ((i=0; i < ${#patches[@]}; ++i)); do

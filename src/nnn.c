@@ -7055,7 +7055,8 @@ nochange:
 		if (!isatty(STDIN_FILENO) && !g_state.picker)
 			return EXIT_FAILURE;
 
-		sel = nextsel(presel);
+		sel = g_state.selbm && !cfg.filtermode ? SEL_MFLTR : nextsel(presel);
+		g_state.selbm = 0;
 		if (presel)
 			presel = 0;
 

@@ -2375,13 +2375,9 @@ static char *parseargs(char *cmd, char **argv, int *pindex)
 
 static void enable_signals(void)
 {
-	struct sigaction dfl_act = {.sa_handler = SIG_DFL};
-
-	sigaction(SIGHUP, &dfl_act, NULL);
-	sigaction(SIGINT, &dfl_act, NULL);
-	sigaction(SIGQUIT, &dfl_act, NULL);
-	sigaction(SIGTSTP, &dfl_act, NULL);
-	sigaction(SIGWINCH, &dfl_act, NULL);
+	int i, sigs[] = { SIGHUP, SIGINT, SIGQUIT, SIGTSTP, SIGWINCH };
+	for (i = 0; i < (int)ELEMENTS(sigs); ++i)
+		sigaction(sigs[i], &(struct sigaction){.sa_handler = SIG_DFL}, NULL);
 }
 
 static pid_t xfork(uchar_t flag)

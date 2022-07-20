@@ -302,26 +302,34 @@
 
 
 /* For color names, refer to: https://www.ditig.com/256-colors-cheat-sheet */
-#define COLOR_VIDEO        45  /* Turquoise2 */
-#define COLOR_VIDEO1       226 /* Yellow1 */
-#define COLOR_AUDIO        220 /* Gold1 */
-#define COLOR_AUDIO1       205 /* HotPink */
-#define COLOR_IMAGE        82  /* Chartreuse2 */
-#define COLOR_DOCS         202 /* OrangeRed1 */
-#define COLOR_ARCHIVE      209 /* Salmon1 */
-#define COLOR_C            81  /* SteelBlue1 */
-#define COLOR_JAVA         32  /* DeepSkyBlue3 */
-#define COLOR_JAVASCRIPT   47  /* SpringGreen2 */
-#define COLOR_REACT        39  /* DeepSkyBlue1 */
-#define COLOR_CSS          199 /* DeepPink1 */
-#define COLOR_PYTHON       227 /* LightGoldenrod1 */
-#define COLOR_LUA          19  /* Blue3 */
-#define COLOR_DOCUMENT     15  /* White */
-#define COLOR_FSHARP       31  /* DeepSkyBlue3 */
-#define COLOR_RUBY         160 /* Red3 */
-#define COLOR_SCALA        196 /* Red1 */
-#define COLOR_SHELL        47  /* SpringGreen2 */
-#define COLOR_VIM          28  /* Green4 */
+#define COLOR_LIST \
+	COLOR_X(COLOR_VIDEO,        45  /* Turquoise2 */) \
+	COLOR_X(COLOR_VIDEO1,       226 /* Yellow1 */) \
+	COLOR_X(COLOR_AUDIO,        220 /* Gold1 */) \
+	COLOR_X(COLOR_AUDIO1,       205 /* HotPink */) \
+	COLOR_X(COLOR_IMAGE,        82  /* Chartreuse2 */) \
+	COLOR_X(COLOR_DOCS,         202 /* OrangeRed1 */) \
+	COLOR_X(COLOR_ARCHIVE,      209 /* Salmon1 */) \
+	COLOR_X(COLOR_C,            81  /* SteelBlue1 */) \
+	COLOR_X(COLOR_JAVA,         32  /* DeepSkyBlue3 */) \
+	COLOR_X(COLOR_JAVASCRIPT,   47  /* SpringGreen2 */) \
+	COLOR_X(COLOR_REACT,        39  /* DeepSkyBlue1 */) \
+	COLOR_X(COLOR_CSS,          199 /* DeepPink1 */) \
+	COLOR_X(COLOR_PYTHON,       227 /* LightGoldenrod1 */) \
+	COLOR_X(COLOR_LUA,          19  /* Blue3 */) \
+	COLOR_X(COLOR_DOCUMENT,     15  /* White */) \
+	COLOR_X(COLOR_FSHARP,       31  /* DeepSkyBlue3 */) \
+	COLOR_X(COLOR_RUBY,         160 /* Red3 */) \
+	COLOR_X(COLOR_SCALA,        196 /* Red1 */) \
+	COLOR_X(COLOR_SHELL,        47  /* SpringGreen2 */) \
+	COLOR_X(COLOR_VIM,          28  /* Green4 */) \
+
+#define COLOR_X(N, V) N = V,
+enum { COLOR_LIST };
+#undef COLOR_X
+#define COLOR_X(N, V) N,
+static const unsigned char init_colors[] = { COLOR_LIST };
+#undef COLOR_X
 
 #ifdef ICONS_GENERATE
 	struct icon_pair { const char *match; const char *icon; unsigned char color; };

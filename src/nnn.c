@@ -2163,13 +2163,8 @@ static bool initcurses(void *oldmask)
 	}
 #ifdef ICONS_ENABLED
 	if (!g_state.oldcolor) {
-		uchar_t icolors[COLOR_256] = {0};
-		for (uint_t i = 0; i < ELEMENTS(icons_ext); ++i) {
-			if (icons_ext[i].color && !icolors[icons_ext[i].color]) {
-				init_pair(C_UND + 1 + icons_ext[i].color, icons_ext[i].color, -1);
-				icolors[icons_ext[i].color] = 1;
-			}
-		}
+		for (uint_t i = 0; i < ELEMENTS(init_colors); ++i)
+			init_pair(C_UND + 1 + init_colors[i], init_colors[i], -1);
 	}
 #endif
 

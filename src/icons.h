@@ -45,261 +45,76 @@
 #define ICON_FILE          ICON_STR("\ue21b", "\uf713", "📃")
 #define ICON_EXEC          ICON_STR("\ue0f3", "\uf144", "⚙️ ")
 
-/* TODO: convert them all to use ICON_STR() */
 // Top level and common icons
-#define ICON_ARCHIVE       "\uf53b"
+#define ICON_ARCHIVE       ICON_STR("\ue27f", "\uf53b", "📦")
 #define ICON_BRIEFCASE     ICON_STR("\ue187", "\uf5d5", "💼")
-#define ICON_C             ICON_STR("", "\ue61e", "🇨 ")
+#define ICON_C             ICON_STR("\uedb1", "\ue61e", "🇨 ")
 #define ICON_CHANGELOG     ICON_STR("\ue292", "\uf7d9", "🔺")
-#define ICON_CHESS         "\uf639"
-#define ICON_CLOJURE       "\ue76a"
+#define ICON_CHESS         ICON_STR("", "\uf639", "")
+#define ICON_CLOJURE       ICON_STR("\uedb4", "\ue76a", "")
 #define ICON_CONFIGURE     ICON_STR("\ue8df", "\uf423", "🔧")
 #define ICON_CPLUSPLUS     ICON_STR("\uedb8", "\ue61d", ICON_C)
-#define ICON_DATABASE      "\uf6b7"
+#define ICON_DATABASE      ICON_STR("\uedc0", "\uf6b7", "🗃️ ")
 #define ICON_DESKTOP       ICON_STR("\ue1cd", "\ufcbe", "🖥️ ")
-#define ICON_DOCUMENT      "\uf718"
+#define ICON_DOCUMENT      ICON_STR("\ue1bc", "\uf718", "🗒 ")
 #define ICON_DOWNLOADS     ICON_STR("\ue0f9", "\uf5d7", "📥")
-#define ICON_ENCRYPT       "\uf805"
-#define ICON_FSHARP        "\ue7a7"
+#define ICON_ENCRYPT       ICON_STR("", "\uf805", "🔒")
+#define ICON_FSHARP        ICON_STR("\ueaae", "\ue7a7", "")
 #define ICON_GIT           ICON_STR("\ue28b", "\ue5fb", "🌱")
-#define ICON_HASKELL       "\ue777"
-#define ICON_HTML          "\uf72d"
-#define ICON_JAVA          "\ue738"
-#define ICON_JAVASCRIPT    "\uf81d"
+#define ICON_HASKELL       ICON_STR("", "\ue777", "")
+#define ICON_HTML          ICON_STR("\ue282", "\uf72d", "")
+#define ICON_JAVA          ICON_STR("\uede3", "\ue738", "☕")
+#define ICON_JAVASCRIPT    ICON_STR("\ue282", "\uf81d", "")
 #define ICON_LICENSE       ICON_STR("\ue2af", "\uf718", "⚖️ ")
-#define ICON_LINUX         "\uf83c"
+#define ICON_LINUX         ICON_STR("\ue23a", "\uf83c", "🐧")
 #define ICON_MAKEFILE      ICON_STR("\ue7a2", "\uf68c", "🛠 ")
 #define ICON_MANUAL        ICON_STR("\ue799", "\uf5bd", "❓")
+#define ICON_MS_EXCEL      ICON_STR("\ue851", "\uf71a", ICON_WORDDOC)
 #define ICON_MUSIC         ICON_STR("\ue0e2", "\uf832", "🎧")
-#define ICON_MUSICFILE     "\uf886"
-#define ICON_OPTICALDISK   "\ue271"
-#define ICON_PICTUREFILE   "\uf71e"
+#define ICON_MUSICFILE     ICON_STR("\ue280", "\uf886", ICON_MUSIC)
+#define ICON_OPTICALDISK   ICON_STR("\uecd3", "\ue271", "💿")
+#define ICON_PDF           ICON_STR("\ue27a", "\uf724", "📕")
+#define ICON_PHOTOSHOP     ICON_STR("\ueabf", "\ue7b8", ICON_PICTUREFILE)
+#define ICON_PICTUREFILE   ICON_STR("\ue27e", "\uf71e", ICON_PICTURES)
 #define ICON_PICTURES      ICON_STR("\ue4fb", "\uf753", "🎨")
-#define ICON_PLAYLIST      "\uf910"
+#define ICON_PLAYLIST      ICON_STR(ICON_MUSICFILE, "\uf910", "")
+#define ICON_POWERPOINT    ICON_STR("\ue84f", "\uf726", "📊")
 #define ICON_PUBLIC        ICON_STR("\ue0fc", "\ue5ff", "👀")
-#define ICON_PYTHON        "\ue235"
-#define ICON_REACT         "\ue625"
-#define ICON_RUBY          "\ue23e"
-#define ICON_SCRIPT        "\ue795"
+#define ICON_PYTHON        ICON_STR("\uee10", "\ue235", "🐍")
+#define ICON_REACT         ICON_STR("\ue849", "\ue625", ICON_JAVASCRIPT)
+#define ICON_RUBY          ICON_STR("\uee15", "\ue23e", "💎")
+#define ICON_SASS          ICON_STR("", "\ue603", "")
+#define ICON_SCRIPT        ICON_STR("\uee1d", "\ue795", "📜")
+#define ICON_SUBTITLE      ICON_STR("\ue1ad", "\uf679", "💬")
 #define ICON_TEMPLATES     ICON_STR("\ue18f", "\ufac6", "📎")
-#define ICON_TEX           "\ufb68"
-#define ICON_VIDEOFILE     "\uf72a"
+#define ICON_TEX           ICON_STR("\ue755", "\ufb68", ICON_DOCUMENT)
+#define ICON_VIDEOFILE     ICON_STR("\ue281", "\uf72a", ICON_VIDEOS)
 #define ICON_VIDEOS        ICON_STR("\ue0e9", "\uf72f", "🎞 ")
-#define ICON_WORDDOC       "\uf72b"
+#define ICON_VIM           ICON_STR("\ueacc", "\ue62b", "")
+#define ICON_WORDDOC       ICON_STR("\ue850", "\uf72b", "📘")
 
-
-/* Numbers */
-#define ICON_EXT_1         ICON_MANUAL
-#define ICON_EXT_7Z        ICON_ARCHIVE
-
-/* A */
-#define ICON_EXT_A         ICON_MANUAL
-#define ICON_EXT_APK       ICON_ARCHIVE
-#define ICON_EXT_ASM       ICON_FILE
-#define ICON_EXT_AUP       ICON_MUSICFILE
-#define ICON_EXT_AVI       ICON_VIDEOFILE
-
-/* B */
-#define ICON_EXT_BAT       ICON_SCRIPT
-#define ICON_EXT_BIB       ICON_TEX
-#define ICON_EXT_BIN       "\uf471"
-#define ICON_EXT_BMP       ICON_PICTUREFILE
-#define ICON_EXT_BZ2       ICON_ARCHIVE
-
-/* C */
-#define ICON_EXT_CAB       ICON_ARCHIVE
-#define ICON_EXT_CABAL     ICON_HASKELL
-#define ICON_EXT_CBR       ICON_ARCHIVE
-#define ICON_EXT_CBZ       ICON_ARCHIVE
-#define ICON_EXT_CLASS     ICON_JAVA
-#define ICON_EXT_CLJ       ICON_CLOJURE
-#define ICON_EXT_CLJC      ICON_CLOJURE
-#define ICON_EXT_CLJS      ICON_CLOJURE
-#define ICON_EXT_CLS       ICON_TEX
-#define ICON_EXT_CMAKE     ICON_MAKEFILE
-#define ICON_EXT_COFFEE    "\ue751"
-#define ICON_EXT_CONF      ICON_CONFIGURE
-#define ICON_EXT_CPIO      ICON_ARCHIVE
-#define ICON_EXT_CSS       "\ue749"
-#define ICON_EXT_CUE       ICON_PLAYLIST
-#define ICON_EXT_CVS       ICON_CONFIGURE
-
-/* D */
-#define ICON_EXT_DB        ICON_DATABASE
-#define ICON_EXT_DEB       "\ue77d"
-#define ICON_EXT_DIFF      "\uf440"
-#define ICON_EXT_DLL       ICON_SCRIPT
-#define ICON_EXT_DOC       ICON_WORDDOC
-#define ICON_EXT_DOCX      ICON_WORDDOC
-
-/* E */
-#define ICON_EXT_EJS       ICON_JAVASCRIPT
-#define ICON_EXT_ELF       ICON_LINUX
-#define ICON_EXT_EPUB      ICON_MANUAL
-#define ICON_EXT_EXE       ICON_EXEC
-
-/* F */
-#define ICON_EXT_FEN       ICON_CHESS
-#define ICON_EXT_FSHARP    ICON_FSHARP
-#define ICON_EXT_FLAC      ICON_MUSICFILE
-#define ICON_EXT_FLV       ICON_VIDEOFILE
-#define ICON_EXT_FS        ICON_FSHARP
-#define ICON_EXT_FSI       ICON_FSHARP
-#define ICON_EXT_FSSCRIPT  ICON_FSHARP
-#define ICON_EXT_FSX       ICON_FSHARP
-
-/* G */
-#define ICON_EXT_GEM       ICON_RUBY
-#define ICON_EXT_GIF       ICON_PICTUREFILE
-#define ICON_EXT_GO        "\ufcd1"
-#define ICON_EXT_GPG       ICON_ENCRYPT
-#define ICON_EXT_GZ        ICON_ARCHIVE
-#define ICON_EXT_GZIP      ICON_ARCHIVE
-
-/* H */
-#define ICON_EXT_H         ICON_C
-#define ICON_EXT_HH        ICON_CPLUSPLUS
-#define ICON_EXT_HPP       ICON_CPLUSPLUS
-#define ICON_EXT_HS        ICON_HASKELL
-#define ICON_EXT_HTACCESS  ICON_CONFIGURE
-#define ICON_EXT_HTPASSWD  ICON_CONFIGURE
-#define ICON_EXT_HTM       ICON_HTML
-#define ICON_EXT_HTML      ICON_HTML
-#define ICON_EXT_HXX       ICON_CPLUSPLUS
-
-/* I */
-#define ICON_EXT_ICO       ICON_PICTUREFILE
-#define ICON_EXT_IMG       ICON_OPTICALDISK
-#define ICON_EXT_INI       ICON_CONFIGURE
-#define ICON_EXT_ISO       ICON_OPTICALDISK
-
-/* J */
-#define ICON_EXT_JAR       ICON_JAVA
-#define ICON_EXT_JAVA      ICON_JAVA
-#define ICON_EXT_JL        ICON_CONFIGURE
-#define ICON_EXT_JPEG      ICON_PICTUREFILE
-#define ICON_EXT_JPG       ICON_PICTUREFILE
-#define ICON_EXT_JS        ICON_JAVASCRIPT
-#define ICON_EXT_JSON      "\ufb25"
-#define ICON_EXT_JSX       ICON_REACT
-
-/* K */
-
-/* L */
-#define ICON_EXT_LHA       ICON_ARCHIVE
-#define ICON_EXT_LHS       ICON_HASKELL
-#define ICON_EXT_LOG       ICON_DOCUMENT
-#define ICON_EXT_LUA       "\ue620"
-#define ICON_EXT_LZH       ICON_ARCHIVE
-#define ICON_EXT_LZMA      ICON_ARCHIVE
-
-/* M */
-#define ICON_EXT_M4A       ICON_MUSICFILE
-#define ICON_EXT_M4V       ICON_VIDEOFILE
-#define ICON_EXT_M         "\ufd1c"
-#define ICON_EXT_MAT       "\uf0ce"
+#define ICON_EXT_ASM       ICON_STR("\ue8d5", "", "")
+#define ICON_EXT_BIN       ICON_STR("\ue073", "\uf471", "📓")
+#define ICON_EXT_COFFEE    ICON_STR("\uedb7", "\ue751", "")
+#define ICON_EXT_CSS       ICON_STR("\uedbb", "\ue749", "🦋")
+#define ICON_EXT_DEB       ICON_STR("\uedc1", "\ue77d", ICON_LINUX)
+#define ICON_EXT_DIFF      ICON_STR("\ue7c3", "\uf440", "📋")
+#define ICON_EXT_GO        ICON_STR("\uedd0", "\ufcd1", "")
+#define ICON_EXT_JSON      ICON_STR(ICON_JAVASCRIPT, "\ufb25", ICON_JAVASCRIPT)
+#define ICON_EXT_LUA       ICON_STR("\ue77e", "\ue620", "🌘")
+#define ICON_EXT_M         ICON_STR("", "\ufd1c", "📊")
+#define ICON_EXT_MAT       ICON_STR("", "\uf0ce", "")
 #define ICON_EXT_MD        ICON_STR("\uea45", "\ue609", "📝")
-#define ICON_EXT_MK        ICON_MAKEFILE
-#define ICON_EXT_MKV       ICON_VIDEOFILE
-#define ICON_EXT_MOV       ICON_VIDEOFILE
-#define ICON_EXT_MP3       ICON_MUSICFILE
-#define ICON_EXT_MP4       ICON_VIDEOFILE
-#define ICON_EXT_MPEG      ICON_VIDEOFILE
-#define ICON_EXT_MPG       ICON_VIDEOFILE
-#define ICON_EXT_MSI       "\uf871"
-
-/* N */
-#define ICON_EXT_NIX       "\uf313"
-
-/* O */
-#define ICON_EXT_O         ICON_MANUAL
-#define ICON_EXT_OGG       ICON_MUSICFILE
-#define ICON_EXT_OPUS      ICON_MUSICFILE
-#define ICON_EXT_ODOWNLOAD ICON_DOWNLOADS
-#define ICON_EXT_OUT       ICON_LINUX
-
-/* P */
-#define ICON_EXT_PART      ICON_DOWNLOADS
-#define ICON_EXT_PATCH     "\uf440"
-#define ICON_EXT_PDF       "\uf724"
-#define ICON_EXT_PGN       ICON_CHESS
-#define ICON_EXT_PHP       "\ue73d"
-#define ICON_EXT_PNG       ICON_PICTUREFILE
-#define ICON_EXT_PPT       "\uf726"
-#define ICON_EXT_PPTX      "\uf726"
-#define ICON_EXT_PSB       "\ue7b8"
-#define ICON_EXT_PSD       "\ue7b8"
-#define ICON_EXT_PY        ICON_PYTHON
-#define ICON_EXT_PYC       ICON_PYTHON
-#define ICON_EXT_PYD       ICON_PYTHON
-#define ICON_EXT_PYO       ICON_PYTHON
-
-/* Q */
-
-/* R */
-#define ICON_EXT_RAR       ICON_ARCHIVE
-#define ICON_EXT_RC        ICON_CONFIGURE
-#define ICON_EXT_ROM       "\uf795"
-#define ICON_EXT_RPM       ICON_ARCHIVE
-#define ICON_EXT_RSS       "\uf96b"
-#define ICON_EXT_RTF       "\uf724"
-#define ICON_EXT_RB        ICON_RUBY
-
-/* S */
-#define ICON_EXT_SASS      "\ue603"
-#define ICON_EXT_SCSS      "\ue603"
-#define ICON_EXT_SO        ICON_MANUAL
-#define ICON_EXT_SCALA     "\ue737"
-#define ICON_EXT_SH        ICON_SCRIPT
-#define ICON_EXT_SLIM      ICON_SCRIPT
-#define ICON_EXT_SLN       "\ue70c"
-#define ICON_EXT_SQL       ICON_DATABASE
-#define ICON_EXT_SRT       "\uf679"
-#define ICON_EXT_STY       ICON_TEX
-#define ICON_EXT_SUB       "\uf679"
-#define ICON_EXT_SVG       ICON_PICTUREFILE
-
-/* T */
-#define ICON_EXT_TAR       ICON_ARCHIVE
-#define ICON_EXT_TEX       ICON_TEX
-#define ICON_EXT_TGZ       ICON_ARCHIVE
-#define ICON_EXT_TS        "\ue628"
-#define ICON_EXT_TSX       ICON_REACT
-#define ICON_EXT_TXT       ICON_DOCUMENT
-#define ICON_EXT_TXZ       ICON_ARCHIVE
-
-/* U */
-
-/* V */
-#define ICON_EXT_VID       ICON_VIDEOFILE
-#define ICON_EXT_VIM       "\ue62b"
-#define ICON_EXT_VIMRC     "\ue62b"
-
-/* W */
-#define ICON_EXT_WAV       ICON_MUSICFILE
-#define ICON_EXT_WEBM      ICON_VIDEOFILE
-#define ICON_EXT_WEBP      ICON_PICTUREFILE
-#define ICON_EXT_WMA       ICON_VIDEOFILE
-#define ICON_EXT_WMV       ICON_VIDEOFILE
-
-/* X */
-#define ICON_EXT_XBPS      ICON_ARCHIVE
-#define ICON_EXT_XCF       ICON_PICTUREFILE
-#define ICON_EXT_XHTML     ICON_HTML
-#define ICON_EXT_XLS       "\uf71a"
-#define ICON_EXT_XLSX      "\uf71a"
-#define ICON_EXT_XML       ICON_HTML
-#define ICON_EXT_XZ        ICON_ARCHIVE
-
-/* Y */
-#define ICON_EXT_YAML      ICON_CONFIGURE
-#define ICON_EXT_YML       ICON_CONFIGURE
-
-/* Z */
-#define ICON_EXT_ZIP       ICON_ARCHIVE
-#define ICON_EXT_ZSH       ICON_SCRIPT
-#define ICON_EXT_ZST       ICON_ARCHIVE
-
+#define ICON_EXT_MSI       ICON_STR("\ue238", "\uf871", "🪟")
+#define ICON_EXT_NIX       ICON_STR("", "\uf313", "")
+#define ICON_EXT_PATCH     ICON_STR("\ue7c4", "\uf440", "🩹")
+#define ICON_EXT_PHP       ICON_STR("\uee09", "\ue73d", "🌐")
+#define ICON_EXT_ROM       ICON_STR("\ue101", "\uf795", "")
+#define ICON_EXT_RSS       ICON_STR("\ue204", "\uf96b", "📡")
+#define ICON_EXT_RTF       ICON_STR(ICON_PDF, "\uf724", ICON_PDF)
+#define ICON_EXT_SCALA     ICON_STR("\uee1b", "\ue737", "")
+#define ICON_EXT_SLN       ICON_STR("\uea13", "\ue70c", "")
+#define ICON_EXT_TS        ICON_STR("\ue73f", "\ue628", "")
 
 /* For color names, refer to: https://www.ditig.com/256-colors-cheat-sheet */
 #define COLOR_LIST \
@@ -356,226 +171,229 @@ static const struct icon_pair icons_name[] = {
 };
 
 #ifdef ICONS_GENERATE
-/* TODO: update these all */
+/*
+ * All entries are case-insensitive
+ * Any entry with empty icon gets removed by the hash-table generator
+ */
 static const struct icon_pair icons_ext[] = {
 	/* Numbers */
-	{"1",          ICON_MANUAL,        COLOR_DOCS},
-	/* {"7z",         ICON_EXT_7Z,        COLOR_ARCHIVE}, */
+	{"1",          ICON_MANUAL,         COLOR_DOCS},
+	{"7z",         ICON_ARCHIVE,        COLOR_ARCHIVE},
 
 	/* A */
-	/* {"a",          ICON_EXT_A,         0}, */
-	/* {"apk",        ICON_EXT_APK,       COLOR_ARCHIVE}, */
-	/* {"asm",        ICON_EXT_ASM,       0}, */
-	/* {"aup",        ICON_EXT_AUP,       COLOR_AUDIO}, */
-	/* {"avi",        ICON_EXT_AVI,       COLOR_VIDEO}, */
+	{"a",          ICON_MANUAL,         0},
+	{"apk",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"asm",        ICON_EXT_ASM,        0},
+	{"aup",        ICON_MUSICFILE,      COLOR_AUDIO},
+	{"avi",        ICON_VIDEOFILE,      COLOR_VIDEO},
 
-	/* /1* B *1/ */
-	/* {"bat",        ICON_EXT_BAT,       0}, */
-	/* {"bib",        ICON_EXT_BIB,       0}, */
-	/* {"bin",        ICON_EXT_BIN,       0}, */
-	/* {"bmp",        ICON_EXT_BMP,       COLOR_IMAGE}, */
-	/* {"bz2",        ICON_EXT_BZ2,       COLOR_ARCHIVE}, */
+	/* B */
+	{"bat",        ICON_SCRIPT,         0},
+	{"bib",        ICON_TEX,            0},
+	{"bin",        ICON_EXT_BIN,        0},
+	{"bmp",        ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"bz2",        ICON_ARCHIVE,        COLOR_ARCHIVE},
 
-	 /* C */
-	{"c",          ICON_C,             COLOR_C},
-	{"c++",        ICON_CPLUSPLUS,     COLOR_C},
-	/* {"cabal",      ICON_EXT_CABAL,     COLOR_VIDEO}, */
-	/* {"cab",        ICON_EXT_CAB,       COLOR_ARCHIVE}, */
-	/* {"cbr",        ICON_EXT_CBR,       COLOR_ARCHIVE}, */
-	/* {"cbz",        ICON_EXT_CBZ,       COLOR_ARCHIVE}, */
-	{"cc",         ICON_CPLUSPLUS,        COLOR_C},
-	/* {"class",      ICON_EXT_CLASS,     COLOR_JAVA}, */
-	/* {"clj",        ICON_EXT_CLJ,       0}, */
-	/* {"cljc",       ICON_EXT_CLJC,      0}, */
-	/* {"cljs",       ICON_EXT_CLJS,      0}, */
-	/* {"cls",        ICON_EXT_CLS,       0}, */
-	/* {"cmake",      ICON_EXT_CMAKE,     0}, */
-	/* {"coffee",     ICON_EXT_COFFEE,    0}, */
-	/* {"conf",       ICON_EXT_CONF,      0}, */
-	/* {"cpio",       ICON_EXT_CPIO,      COLOR_ARCHIVE}, */
-	{"cpp",        ICON_CPLUSPLUS,       COLOR_C},
-	/* {"css",        ICON_EXT_CSS,       COLOR_CSS}, */
-	/* {"cue",        ICON_EXT_CUE,       COLOR_AUDIO}, */
-	/* {"cvs",        ICON_EXT_CVS,       0}, */
+	/* C */
+	{"c",          ICON_C,              COLOR_C},
+	{"c++",        ICON_CPLUSPLUS,      COLOR_C},
+	{"cabal",      ICON_HASKELL,        COLOR_VIDEO},
+	{"cab",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"cbr",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"cbz",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"cc",         ICON_CPLUSPLUS,      COLOR_C},
+	{"class",      ICON_JAVA,           COLOR_JAVA},
+	{"clj",        ICON_CLOJURE,        0},
+	{"cljc",       ICON_CLOJURE,        0},
+	{"cljs",       ICON_CLOJURE,        0},
+	{"cls",        ICON_TEX,            0},
+	{"cmake",      ICON_MAKEFILE,       0},
+	{"coffee",     ICON_EXT_COFFEE,     0},
+	{"conf",       ICON_CONFIGURE,      0},
+	{"cpio",       ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"cpp",        ICON_CPLUSPLUS,      COLOR_C},
+	{"css",        ICON_EXT_CSS,        COLOR_CSS},
+	{"cue",        ICON_PLAYLIST,       COLOR_AUDIO},
+	{"cvs",        ICON_CONFIGURE,      0},
 	{"cxx",        ICON_CPLUSPLUS,      COLOR_C},
 
-	/* /1* D *1/ */
-	/* {"db",         ICON_EXT_DB,        0}, */
-	/* {"deb",        ICON_EXT_DEB,       COLOR_ARCHIVE}, */
-	/* {"diff",       ICON_EXT_DIFF,      0}, */
-	/* {"dll",        ICON_EXT_DLL,       0}, */
-	/* {"doc",        ICON_EXT_DOC,       COLOR_DOCUMENT}, */
-	/* {"docx",       ICON_EXT_DOCX,      COLOR_DOCUMENT}, */
+	/* D */
+	{"db",         ICON_DATABASE,       0},
+	{"deb",        ICON_EXT_DEB,        COLOR_ARCHIVE},
+	{"diff",       ICON_EXT_DIFF,       0},
+	{"dll",        ICON_SCRIPT,         0},
+	{"doc",        ICON_WORDDOC,        COLOR_DOCUMENT},
+	{"docx",       ICON_WORDDOC,        COLOR_DOCUMENT},
 
-	/*  /1* E *1/ */
-	/* {"ejs",        ICON_EXT_EJS,       COLOR_JAVASCRIPT}, */
-	/* {"elf",        ICON_EXT_ELF,       0}, */
-	/* {"epub",       ICON_EXT_EPUB,      COLOR_DOCS}, */
-	/* {"exe",        ICON_EXT_EXE,       0}, */
+	/* E */
+	{"ejs",        ICON_JAVASCRIPT,     COLOR_JAVASCRIPT},
+	{"elf",        ICON_LINUX,          0},
+	{"epub",       ICON_PDF,            COLOR_DOCS},
+	{"exe",        ICON_EXEC,           0},
 
-	/* /1* F *1/ */
-	/* {"f#",         ICON_EXT_FSHARP,    COLOR_FSHARP}, */
-	/* {"fen",        ICON_EXT_FEN,       0}, */
-	/* {"flac",       ICON_EXT_FLAC,      COLOR_AUDIO1}, */
-	/* {"flv",        ICON_EXT_FLV,       COLOR_VIDEO}, */
-	/* {"fs",         ICON_EXT_FS,        COLOR_FSHARP}, */
-	/* {"fsi",        ICON_EXT_FSI,       COLOR_FSHARP}, */
-	/* {"fsscript",   ICON_EXT_FSSCRIPT,  COLOR_FSHARP}, */
-	/* {"fsx",        ICON_EXT_FSX,       COLOR_FSHARP}, */
+	/* F */
+	{"f#",         ICON_FSHARP,         COLOR_FSHARP},
+	{"fen",        ICON_CHESS,          0},
+	{"flac",       ICON_MUSICFILE,      COLOR_AUDIO1},
+	{"flv",        ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"fs",         ICON_FSHARP,         COLOR_FSHARP},
+	{"fsi",        ICON_FSHARP,         COLOR_FSHARP},
+	{"fsscript",   ICON_FSHARP,         COLOR_FSHARP},
+	{"fsx",        ICON_FSHARP,         COLOR_FSHARP},
 
-	/* /1* G *1/ */
-	/* {"gem",        ICON_EXT_GEM,       COLOR_RUBY}, */
-	/* {"gif",        ICON_EXT_GIF,       COLOR_IMAGE}, */
-	/* {"go",         ICON_EXT_GO,        0}, */
-	/* {"gpg",        ICON_EXT_GPG,       COLOR_ARCHIVE}, */
-	/* {"gz",         ICON_EXT_GZ,        COLOR_ARCHIVE}, */
-	/* {"gzip",       ICON_EXT_GZIP,      COLOR_ARCHIVE}, */
+	/* G */
+	{"gem",        ICON_RUBY,           COLOR_RUBY},
+	{"gif",        ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"go",         ICON_EXT_GO,         0},
+	{"gpg",        ICON_ENCRYPT,        COLOR_ARCHIVE},
+	{"gz",         ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"gzip",       ICON_ARCHIVE,        COLOR_ARCHIVE},
 
-	/* /1* H *1/ */
-	/* {"h",          ICON_EXT_H,         COLOR_C}, */
-	/* {"hh",         ICON_EXT_HH,        COLOR_C}, */
-	/* {"hpp",        ICON_EXT_HPP,       COLOR_C}, */
-	/* {"hs",         ICON_EXT_HS,        COLOR_VIM}, */
-	/* {"htaccess",   ICON_EXT_HTACCESS,  0}, */
-	/* {"htpasswd",   ICON_EXT_HTPASSWD,  0}, */
-	/* {"htm",        ICON_EXT_HTM,       0}, */
-	/* {"html",       ICON_EXT_HTML,      0}, */
-	/* {"hxx",        ICON_EXT_HXX,       COLOR_C}, */
+	/* H */
+	{"h",          ICON_C,              COLOR_C},
+	{"hh",         ICON_CPLUSPLUS,      COLOR_C},
+	{"hpp",        ICON_CPLUSPLUS,      COLOR_C},
+	{"hs",         ICON_HASKELL,        COLOR_VIM},
+	{"htaccess",   ICON_CONFIGURE,      0},
+	{"htpasswd",   ICON_CONFIGURE,      0},
+	{"htm",        ICON_HTML,           0},
+	{"html",       ICON_HTML,           0},
+	{"hxx",        ICON_CPLUSPLUS,      COLOR_C},
 
-	/* /1* I *1/ */
-	/* {"ico",        ICON_EXT_ICO,       COLOR_IMAGE}, */
-	/* {"img",        ICON_EXT_IMG,       COLOR_ARCHIVE}, */
-	/* {"ini",        ICON_EXT_INI,       0}, */
-	/* {"iso",        ICON_EXT_ISO,       COLOR_ARCHIVE}, */
+	/* I */
+	{"ico",        ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"ini",        ICON_CONFIGURE,      0},
+	{"img",        ICON_OPTICALDISK,    COLOR_ARCHIVE},
+	{"iso",        ICON_OPTICALDISK,    COLOR_ARCHIVE},
 
-	/* /1* J *1/ */
-	/* {"jar",        ICON_EXT_JAR,       COLOR_JAVA}, */
-	/* {"java",       ICON_EXT_JAVA,      COLOR_JAVA}, */
-	/* {"jl",         ICON_EXT_JL,        0}, */
-	/* {"jpeg",       ICON_EXT_JPEG,      COLOR_IMAGE}, */
-	/* {"jpg",        ICON_EXT_JPG,       COLOR_IMAGE}, */
-	/* {"js",         ICON_EXT_JS,        COLOR_JAVASCRIPT}, */
-	/* {"json",       ICON_EXT_JSON,      COLOR_JAVASCRIPT}, */
-	/* {"jsx",        ICON_EXT_JSX,       COLOR_REACT}, */
+	/* J */
+	{"jar",        ICON_JAVA,           COLOR_JAVA},
+	{"java",       ICON_JAVA,           COLOR_JAVA},
+	{"jl",         ICON_CONFIGURE,      0},
+	{"jpeg",       ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"jpg",        ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"js",         ICON_JAVASCRIPT,     COLOR_JAVASCRIPT},
+	{"json",       ICON_EXT_JSON,       COLOR_JAVASCRIPT},
+	{"jsx",        ICON_REACT,          COLOR_REACT},
 
-	/* /1* K *1/ */
+	/* K */
 
-	/* /1* L *1/ */
-	/* {"lha",        ICON_EXT_LHA,       COLOR_ARCHIVE}, */
-	/* {"lhs",        ICON_EXT_LHS,       COLOR_VIM}, */
-	/* {"log",        ICON_EXT_LOG,       0}, */
-	/* {"lua",        ICON_EXT_LUA,       COLOR_LUA}, */
-	/* {"lzh",        ICON_EXT_LZH,       COLOR_ARCHIVE}, */
-	/* {"lzma",       ICON_EXT_LZMA,      COLOR_ARCHIVE}, */
+	/* L */
+	{"lha",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"lhs",        ICON_HASKELL,        COLOR_VIM},
+	{"log",        ICON_DOCUMENT,       0},
+	{"lua",        ICON_EXT_LUA,        COLOR_LUA},
+	{"lzh",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"lzma",       ICON_ARCHIVE,        COLOR_ARCHIVE},
 
-	/* /1* M *1/ */
-	/* {"m",          ICON_EXT_M,         COLOR_C}, */
-	/* {"m4a",        ICON_EXT_M4A,       COLOR_AUDIO}, */
-	/* {"m4v",        ICON_EXT_M4V,       COLOR_VIDEO}, */
-	{"markdown",   ICON_EXT_MD,        COLOR_DOCS},
-	/* {"mat",        ICON_EXT_MAT,       COLOR_C}, */
-	{"md",         ICON_EXT_MD,        COLOR_DOCS},
-	/* {"mk",         ICON_EXT_MK,        0}, */
-	/* {"mkv",        ICON_EXT_MKV,       COLOR_VIDEO}, */
-	/* {"mov",        ICON_EXT_MOV,       COLOR_VIDEO}, */
-	/* {"mp3",        ICON_EXT_MP3,       COLOR_AUDIO}, */
-	/* {"mp4",        ICON_EXT_MP4,       COLOR_VIDEO1}, */
-	/* {"mpeg",       ICON_EXT_MPEG,      COLOR_VIDEO}, */
-	/* {"mpg",        ICON_EXT_MPG,       COLOR_VIDEO}, */
-	/* {"msi",        ICON_EXT_MSI,       0}, */
+	/* M */
+	{"m",          ICON_EXT_M,          COLOR_C},
+	{"m4a",        ICON_MUSICFILE,      COLOR_AUDIO},
+	{"m4v",        ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"markdown",   ICON_EXT_MD,         COLOR_DOCS},
+	{"mat",        ICON_EXT_MAT,        COLOR_C},
+	{"md",         ICON_EXT_MD,         COLOR_DOCS},
+	{"mk",         ICON_MAKEFILE,       0},
+	{"mkv",        ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"mov",        ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"mp3",        ICON_MUSICFILE,      COLOR_AUDIO},
+	{"mp4",        ICON_VIDEOFILE,      COLOR_VIDEO1},
+	{"mpeg",       ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"mpg",        ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"msi",        ICON_EXT_MSI,        0},
 
-	/* /1* N *1/ */
-	/* {"nix",        ICON_EXT_NIX,       COLOR_FSHARP}, */
+	/* N */
+	{"nix",        ICON_EXT_NIX,        COLOR_FSHARP},
 
-	/* /1* O *1/ */
-	/* {"o",          ICON_EXT_O,         0}, */
-	/* {"ogg",        ICON_EXT_OGG,       COLOR_AUDIO}, */
-	/* {"opus",       ICON_EXT_OPUS,      COLOR_AUDIO}, */
-	/* {"opdownload", ICON_EXT_ODOWNLOAD, 0}, */
-	/* {"out",        ICON_EXT_OUT,       0}, */
+	/* O */
+	{"o",          ICON_MANUAL,         0},
+	{"ogg",        ICON_MUSICFILE,      COLOR_AUDIO},
+	{"opus",       ICON_MUSICFILE,      COLOR_AUDIO},
+	{"opdownload", ICON_DOWNLOADS,      0},
+	{"out",        ICON_LINUX,          0},
 
-	/* /1* P *1/ */
-	/* {"part",       ICON_EXT_PART,      0}, */
-	/* {"patch",      ICON_EXT_PATCH,     0}, */
-	/* {"pdf",        ICON_EXT_PDF,       COLOR_DOCS}, */
-	/* {"pgn",        ICON_EXT_PGN,       0}, */
-	/* {"php",        ICON_EXT_PHP,       0}, */
-	/* {"png",        ICON_EXT_PNG,       COLOR_IMAGE}, */
-	/* {"ppt",        ICON_EXT_PPT,       0}, */
-	/* {"pptx",       ICON_EXT_PPTX,      0}, */
-	/* {"psb",        ICON_EXT_PSB,       0}, */
-	/* {"psd",        ICON_EXT_PSD,       0}, */
-	/* {"py",         ICON_EXT_PY,        COLOR_PYTHON}, */
-	/* {"pyc",        ICON_EXT_PYC,       COLOR_PYTHON}, */
-	/* {"pyd",        ICON_EXT_PYD,       COLOR_PYTHON}, */
-	/* {"pyo",        ICON_EXT_PYO,       COLOR_PYTHON}, */
+	/* P */
+	{"part",       ICON_DOWNLOADS,      0},
+	{"patch",      ICON_EXT_PATCH,      0},
+	{"pdf",        ICON_PDF,            COLOR_DOCS},
+	{"pgn",        ICON_CHESS,          0},
+	{"php",        ICON_EXT_PHP,        0},
+	{"png",        ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"ppt",        ICON_POWERPOINT,     0},
+	{"pptx",       ICON_POWERPOINT,     0},
+	{"psb",        ICON_PHOTOSHOP,      0},
+	{"psd",        ICON_PHOTOSHOP,      0},
+	{"py",         ICON_PYTHON,        COLOR_PYTHON},
+	{"pyc",        ICON_PYTHON,        COLOR_PYTHON},
+	{"pyd",        ICON_PYTHON,        COLOR_PYTHON},
+	{"pyo",        ICON_PYTHON,        COLOR_PYTHON},
 
-	/* /1* Q *1/ */
+	/* Q */
 
-	/* /1* R *1/ */
-	/* {"rar",        ICON_EXT_RAR,       COLOR_ARCHIVE}, */
-	/* {"rb",         ICON_EXT_RB,        COLOR_RUBY}, */
-	/* {"rc",         ICON_EXT_RC,        0}, */
-	/* {"rom",        ICON_EXT_ROM,       0}, */
-	/* {"rpm",        ICON_EXT_RPM,       COLOR_ARCHIVE}, */
-	/* {"rss",        ICON_EXT_RSS,       0}, */
-	/* {"rtf",        ICON_EXT_RTF,       0}, */
+	/* R */
+	{"rar",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"rb",         ICON_RUBY,           COLOR_RUBY},
+	{"rc",         ICON_CONFIGURE,      0},
+	{"rom",        ICON_EXT_ROM,        0},
+	{"rpm",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"rss",        ICON_EXT_RSS,        0},
+	{"rtf",        ICON_EXT_RTF,        0},
 
-	/* /1* S *1/ */
-	/* {"sass",       ICON_EXT_SASS,      COLOR_CSS}, */
-	/* {"scss",       ICON_EXT_SCSS,      COLOR_CSS}, */
-	/* {"so",         ICON_EXT_SO,        0}, */
-	/* {"scala",      ICON_EXT_SCALA,     COLOR_SCALA}, */
-	/* {"sh",         ICON_EXT_SH,        COLOR_SHELL}, */
-	/* {"slim",       ICON_EXT_SLIM,      COLOR_DOCUMENT}, */
-	/* {"sln",        ICON_EXT_SLN,       0}, */
-	/* {"sql",        ICON_EXT_SQL,       0}, */
-	/* {"srt",        ICON_EXT_SRT,       0}, */
-	/* {"sty",        ICON_EXT_STY,       0}, */
-	/* {"sub",        ICON_EXT_SUB,       0}, */
-	/* {"svg",        ICON_EXT_SVG,       COLOR_IMAGE}, */
+	/* S */
+	{"sass",       ICON_SASS,           COLOR_CSS},
+	{"scss",       ICON_SASS,           COLOR_CSS},
+	{"so",         ICON_MANUAL,         0},
+	{"scala",      ICON_EXT_SCALA,      COLOR_SCALA},
+	{"sh",         ICON_SCRIPT,         COLOR_SHELL},
+	{"slim",       ICON_SCRIPT,         COLOR_DOCUMENT},
+	{"sln",        ICON_EXT_SLN,        0},
+	{"sql",        ICON_DATABASE,       0},
+	{"srt",        ICON_SUBTITLE,       0},
+	{"sty",        ICON_TEX,            0},
+	{"sub",        ICON_SUBTITLE,       0},
+	{"svg",        ICON_PICTUREFILE,    COLOR_IMAGE},
 
-	/* /1* T *1/ */
-	/* {"tar",        ICON_EXT_TAR,       COLOR_ARCHIVE}, */
-	/* {"tex",        ICON_EXT_TEX,       0}, */
-	/* {"tgz",        ICON_EXT_TGZ,       COLOR_ARCHIVE}, */
-	/* {"ts",         ICON_EXT_TS,        COLOR_JAVASCRIPT}, */
-	/* {"tsx",        ICON_EXT_TSX,       COLOR_REACT}, */
-	/* {"txt",        ICON_EXT_TXT,       COLOR_DOCUMENT}, */
-	/* {"txz",        ICON_EXT_TXZ,       COLOR_ARCHIVE}, */
+	/* T */
+	{"tar",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"tex",        ICON_TEX,            0},
+	{"tgz",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"ts",         ICON_EXT_TS,        COLOR_JAVASCRIPT},
+	{"tsx",        ICON_REACT,          COLOR_REACT},
+	{"txt",        ICON_DOCUMENT,       COLOR_DOCUMENT},
+	{"txz",        ICON_ARCHIVE,        COLOR_ARCHIVE},
 
-	/* /1* U *1/ */
+	/* U */
 
-	/* /1* V *1/ */
-	/* {"vid",        ICON_EXT_VID,       COLOR_VIDEO}, */
-	/* {"vim",        ICON_EXT_VIM,       COLOR_VIM}, */
-	/* {"vimrc",      ICON_EXT_VIMRC,     COLOR_VIM}, */
-	/* {"vtt",        ICON_EXT_SRT,       0}, */
+	/* V */
+	{"vid",        ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"vim",        ICON_VIM,            COLOR_VIM},
+	{"vimrc",      ICON_VIM,            COLOR_VIM},
+	{"vtt",        ICON_SUBTITLE,       0},
 
-	/* /1* W *1/ */
-	/* {"wav",        ICON_EXT_WAV,       COLOR_AUDIO}, */
-	/* {"webm",       ICON_EXT_WEBM,      COLOR_VIDEO}, */
-	/* {"webp",       ICON_EXT_WEBP,      COLOR_IMAGE}, */
-	/* {"wma",        ICON_EXT_WMA,       COLOR_AUDIO}, */
-	/* {"wmv",        ICON_EXT_WMV,       COLOR_VIDEO}, */
+	/* W */
+	{"wav",        ICON_MUSICFILE,      COLOR_AUDIO},
+	{"webm",       ICON_VIDEOFILE,      COLOR_VIDEO},
+	{"webp",       ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"wma",        ICON_VIDEOFILE,      COLOR_AUDIO},
+	{"wmv",        ICON_VIDEOFILE,      COLOR_VIDEO},
 
-	/* /1* X *1/ */
-	/* {"xbps",       ICON_EXT_XBPS,      COLOR_ARCHIVE}, */
-	/* {"xcf",        ICON_EXT_XCF,       COLOR_IMAGE}, */
-	/* {"xhtml",      ICON_EXT_XHTML,     0}, */
-	/* {"xls",        ICON_EXT_XLS,       0}, */
-	/* {"xlsx",       ICON_EXT_XLSX,      0}, */
-	/* {"xml",        ICON_EXT_XML,       0}, */
-	/* {"xz",         ICON_EXT_XZ,        COLOR_ARCHIVE}, */
+	/* X */
+	{"xbps",       ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"xcf",        ICON_PICTUREFILE,    COLOR_IMAGE},
+	{"xhtml",      ICON_HTML,           0},
+	{"xls",        ICON_MS_EXCEL,       0},
+	{"xlsx",       ICON_MS_EXCEL,       0},
+	{"xml",        ICON_HTML,           0},
+	{"xz",         ICON_ARCHIVE,        COLOR_ARCHIVE},
 
-	/* /1* Y *1/ */
-	/* {"yaml",       ICON_EXT_YAML,      COLOR_DOCUMENT}, */
-	/* {"yml",        ICON_EXT_YML,       COLOR_DOCUMENT}, */
+	/* Y */
+	{"yaml",       ICON_CONFIGURE,      COLOR_DOCUMENT},
+	{"yml",        ICON_CONFIGURE,      COLOR_DOCUMENT},
 
-	/* /1* Z *1/ */
-	/* {"zip",        ICON_EXT_ZIP,       COLOR_ARCHIVE}, */
-	/* {"zsh",        ICON_EXT_ZSH,       COLOR_SHELL}, */
-	/* {"zst",        ICON_EXT_ZST,       COLOR_ARCHIVE}, */
+	/* Z */
+	{"zip",        ICON_ARCHIVE,        COLOR_ARCHIVE},
+	{"zsh",        ICON_SCRIPT,         COLOR_SHELL},
+	{"zst",        ICON_ARCHIVE,        COLOR_ARCHIVE},
 
 	/* Other */
 };

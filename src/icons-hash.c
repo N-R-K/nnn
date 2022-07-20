@@ -40,6 +40,10 @@ again:
 	max_try = 0;
 	for (size_t i = 0; i < ARRLEN(icons_ext); ++i) {
 		uint16_t k,  z = icon_ext_hash(icons_ext[i].match);
+
+		if (icons_ext[i].icon[0] == '\0') /* skip empty entries */
+			continue;
+
 		assert(z < ARRLEN(seen));
 		for (k = 0; k < ARRLEN(seen); ++k) {
 			if (!seen[(z + k) % ARRLEN(seen)])
@@ -57,6 +61,7 @@ again:
 	}
 	log("hash_start: %u hash_mul: %u max_try: %u\n",
 	    (unsigned)hash_start, (unsigned)hash_mul, (unsigned)max_try);
+	printf("#define ICONS_PROBE_MAX %u\n", max_try + 1);
 	printf("#define hash_start %uu\n", hash_start);
 	printf("#define hash_mul   %uu\n", hash_mul);
 
@@ -79,6 +84,10 @@ again:
 	printf("static struct icon_pair icons_ext[%zu] = {\n", ARRLEN(seen));
 	for (size_t i = 0; i < ARRLEN(icons_ext); ++i) {
 		uint16_t z, k, h = icon_ext_hash(icons_ext[i].match);
+
+		if (icons_ext[i].icon[0] == '\0') /* skip empty entries */
+			continue;
+
 		for (k = 0; k < ICONS_PROBE_MAX; ++k) {
 			z = (h + k) % ARRLEN(seen);
 			if (!seen[z]) break;

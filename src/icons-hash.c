@@ -1,5 +1,13 @@
+/*
+ * simple program which outputs a hash-table of `icons_ext` with low collusion.
+ * the hash function is case-insensitive, it also doesn't hash beyond the
+ * length of the longest extension.
+ */
+
 #include <stddef.h>
 #include <stdint.h>
+
+#define GOLDEN_RATIO_16 40503u /* golden ratio for 16bits: (2^16) / 1.61803 */
 
 #ifdef ICONS_GENERATE
 
@@ -16,7 +24,8 @@
 
 #define ASSERT(X) assert(X)
 #define ARRLEN(X) (sizeof(X) / sizeof((X)[0]))
-#define HGEN_ITERARATION (1ul << 12)
+#define MAX(A, B) ((A) > (B) ? (A) : (B))
+#define HGEN_ITERARATION (1ul << 14)
 #if 0 /* enable for debugging */
 	#define log(...)  fprintf(stderr, "[INFO]: " __VA_ARGS__)
 #else
@@ -27,9 +36,12 @@ static uint16_t icon_ext_hash(const char *s);
 
 static struct icon_pair table[256];
 static uint16_t seen[ARRLEN(table)];
-static uint16_t hash_start = 41;
-static uint16_t hash_mul = 5731;
+static uint16_t hash_start = 41; /* arbitrarily picked. change if needed. but ensure it's above 1 */
+static uint16_t hash_mul = 5731; /* same as above ^ */
 
+/*
+ * use robin-hood insertion to reduce the max probe length
+ */
 static void
 rh_insert(const struct icon_pair item, uint32_t idx, uint32_t n)
 {
@@ -72,12 +84,12 @@ table_populate(void)
 	return max_try;
 }
 
-
-#define MAX(A, B)        ((A) > (B) ? (A) : (B))
 int
 main(void)
 {
 	assert(ARRLEN(icons_ext) <= ARRLEN(table));
+	assert((GOLDEN_RATIO_16 & 1) == 1); /* must be odd */
+	assert(hash_start > 1); assert(hash_mul > 1);
 	/* ensure power of 2 hashtable size which allows compiler to optimize
 	 * away mod (`%`) operations
 	 */
@@ -93,8 +105,8 @@ main(void)
 			low_hash_start = hash_start;
 			low_hash_mul = hash_mul;
 		}
-		hash_start *= 40503u;
-		hash_mul *= 40503u;
+		hash_start *= GOLDEN_RATIO_16;
+		hash_mul *= GOLDEN_RATIO_16;
 	}
 	assert(max_probe < ICONS_PROBE_MAX);
 	hash_start = low_hash_start; hash_mul = low_hash_mul;
@@ -161,6 +173,10 @@ main(void)
 static uint16_t
 icon_ext_hash(const char *str)
 {
+	/* NOTE: change this if the hash-table size is to be increased.
+	 * this hash function must return an index that's within bounds of the
+	 * hash-table size; we use the high 8 bits for this purpose as of now.
+	 */
 	uint16_t z = 8;
 	ASSERT(1u << z == ARRLEN(table));
 	const unsigned char *s = (const unsigned char *)str;
@@ -171,7 +187,7 @@ icon_ext_hash(const char *str)
 		hash *= hash_mul;
 	}
 	hash = (hash >> z) ^ hash;
-	hash *= 40503u;
+	hash *= GOLDEN_RATIO_16;
 	hash >>= z;
 	ASSERT(hash < ARRLEN(table));
 	return hash;

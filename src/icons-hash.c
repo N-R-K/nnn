@@ -17,13 +17,57 @@
 
 #define ASSERT(X) assert(X)
 #define ARRLEN(X) (sizeof(X) / sizeof((X)[0]))
-#define log(...)  fprintf(stderr, __VA_ARGS__)
+#define log(...)  fprintf(stderr, "[INFO]: " __VA_ARGS__)
 
 static uint16_t icon_ext_hash(const char *s);
 
 static uint16_t seen[256];
 static uint16_t hash_start = 41;
 static uint16_t hash_mul = 5731;
+static unsigned int max_try;
+static struct icon_pair table[ARRLEN(seen)];
+
+static void
+rh_insert(const struct icon_pair item, uint32_t idx, uint32_t start)
+{
+	uint32_t n = start;
+	while (n <= ICONS_PROBE_MAX) {
+		if (seen[idx] == 0) {
+			table[idx] = item;
+			seen[idx] = 1;
+			return;
+		} else if (seen[idx] < n) {
+			struct icon_pair tmp = table[idx];
+			uint32_t z = seen[idx];
+
+			table[idx] = item;
+			seen[idx] = n;
+
+			rh_insert(tmp, idx, z);
+			return;
+		}
+		++n;
+		++idx;
+	}
+	assert(n <= ICONS_PROBE_MAX);
+}
+
+static void
+table_populate(void)
+{
+	memset(seen, 0x0, sizeof seen);
+	for (size_t i = 0; i < ARRLEN(icons_ext); ++i) {
+		uint32_t h = icon_ext_hash(icons_ext[i].match);
+		rh_insert(icons_ext[i], h, 1);
+	}
+
+	max_try = 0;
+	for (size_t i = 0; i < ARRLEN(seen); ++i) {
+		if (seen[i] > max_try) max_try = seen[i];
+	}
+	assert(max_try < ICONS_PROBE_MAX);
+	log("max_try after robin-hood: %u\n", max_try);
+}
 
 
 #define MAX(A, B)        ((A) > (B) ? (A) : (B))
@@ -33,7 +77,7 @@ main(void)
 	assert(ARRLEN(icons_ext) <= ARRLEN(seen));
 	assert((ARRLEN(seen) & (ARRLEN(seen) - 1)) == 0);
 
-	uint32_t tries = 0, max_try;
+	uint32_t tries = 0;
 
 again:
 	assert(tries < (1ul << 16));
@@ -59,9 +103,9 @@ again:
 		}
 		seen[(z + k) % ARRLEN(seen)] = 1;
 	}
-	log("hash_start: %u hash_mul: %u max_try: %u\n",
+	log("hash_start: %u hash_mul: %u max_try before robin-hood: %u\n",
 	    (unsigned)hash_start, (unsigned)hash_mul, (unsigned)max_try);
-	printf("#define ICONS_PROBE_MAX %u\n", max_try + 1);
+
 	printf("#define hash_start %uu\n", hash_start);
 	printf("#define hash_mul   %uu\n", hash_mul);
 
@@ -77,28 +121,22 @@ again:
 	icon_max = MAX(icon_max, strlen(dir_icon.icon) + 1);
 	icon_max = MAX(icon_max, strlen(exec_icon.icon) + 1);
 	icon_max = MAX(icon_max, strlen(file_icon.icon) + 1);
+
+	table_populate();
+	printf("#define ICONS_PROBE_MAX %u\n", max_try + 1);
+
 	printf("struct icon_pair { const char match[%zu]; const char icon[%zu]; unsigned char color; };\n\n",
 	       match_max, icon_max);
 
-	memset(seen, 0x0, sizeof seen);
 	printf("static struct icon_pair icons_ext[%zu] = {\n", ARRLEN(seen));
-	for (size_t i = 0; i < ARRLEN(icons_ext); ++i) {
-		uint16_t z, k, h = icon_ext_hash(icons_ext[i].match);
-
-		if (icons_ext[i].icon[0] == '\0') /* skip empty entries */
+	for (size_t i = 0; i < ARRLEN(table); ++i) {
+		if (table[i].icon == NULL || table[i].icon[0] == '\0') /* skip empty entries */
 			continue;
-
-		for (k = 0; k < ICONS_PROBE_MAX; ++k) {
-			z = (h + k) % ARRLEN(seen);
-			if (!seen[z]) break;
-		}
-		assert(k != ICONS_PROBE_MAX);
-		seen[z] = 1;
 		printf("\t[%u] = {\"%s\", \"%s\", %d },\n",
-		       (unsigned)z,
-		       icons_ext[i].match,
-		       icons_ext[i].icon,
-		       (unsigned)icons_ext[i].color);
+		       (unsigned)i,
+		       table[i].match,
+		       table[i].icon,
+		       (unsigned)table[i].color);
 	}
 	printf("};\n");
 }

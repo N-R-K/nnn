@@ -3978,7 +3978,7 @@ static const struct icon_pair *get_icon(const struct entry *ent)
 		uint16_t z, k, h = icon_ext_hash(++tmp); /* ++tmp to skip '.' */
 		for (k = 0; k < ICONS_PROBE_MAX; ++k) {
 			z = (h + k) % ELEMENTS(icons_ext);
-			if (strcmp(tmp, icons_ext[z].match) == 0)
+			if (strcasecmp(tmp, icons_ext[z].match) == 0)
 				return &icons_ext[z];
 		}
 	}

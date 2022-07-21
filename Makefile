@@ -209,8 +209,8 @@ $(BIN): $(SRC) $(HEADERS) Makefile
 
 src/icons-generated.h: src/icons-hash-gen
 	@./$< > $@
-src/icons-hash-gen: src/icons-hash.c
-	$(CC) $(CPPFLAGS) -DICONS_GENERATE -o $@ $<
+src/icons-hash-gen: src/icons-hash.c src/nnn.c src/icons.h src/nnn.h
+	$(CC) $(CPPFLAGS) -DICONS_GENERATE -o $@ src/icons-hash.c
 
 # targets for backwards compatibility
 debug: $(BIN)

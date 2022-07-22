@@ -122,29 +122,35 @@
 #define ICON_EXT_SLN       ICON_STR(DEV_VISUALSTUDIO, "\ue70c", "")
 #define ICON_EXT_TS        ICON_STR(FILE_TS, "\ue628", "")
 
-/* For color names, refer to: https://www.ditig.com/256-colors-cheat-sheet */
+/*
+ * Hex xterm 256 color code, 0 to follow file specific (if any)
+ * Codes: https://jonasjacek.github.io/colors/
+ * Spectrum sorted: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+ * Color names: https://www.ditig.com/256-colors-cheat-sheet
+ */
 #define COLOR_LIST \
-	COLOR_X(COLOR_VIDEO,        45  /* Turquoise2 */) \
-	COLOR_X(COLOR_VIDEO1,       226 /* Yellow1 */) \
-	COLOR_X(COLOR_AUDIO,        220 /* Gold1 */) \
-	COLOR_X(COLOR_AUDIO1,       205 /* HotPink */) \
-	COLOR_X(COLOR_IMAGE,        82  /* Chartreuse2 */) \
-	COLOR_X(COLOR_DOCS,         202 /* OrangeRed1 */) \
-	COLOR_X(COLOR_ARCHIVE,      209 /* Salmon1 */) \
-	COLOR_X(COLOR_C,            81  /* SteelBlue1 */) \
-	COLOR_X(COLOR_JAVA,         32  /* DeepSkyBlue3 */) \
-	COLOR_X(COLOR_JAVASCRIPT,   47  /* SpringGreen2 */) \
-	COLOR_X(COLOR_REACT,        39  /* DeepSkyBlue1 */) \
-	COLOR_X(COLOR_CSS,          199 /* DeepPink1 */) \
-	COLOR_X(COLOR_PYTHON,       227 /* LightGoldenrod1 */) \
-	COLOR_X(COLOR_LUA,          19  /* Blue3 */) \
-	COLOR_X(COLOR_DOCUMENT,     15  /* White */) \
-	COLOR_X(COLOR_FSHARP,       31  /* DeepSkyBlue3 */) \
-	COLOR_X(COLOR_RUBY,         160 /* Red3 */) \
-	COLOR_X(COLOR_SCALA,        196 /* Red1 */) \
-	COLOR_X(COLOR_SHELL,        47  /* SpringGreen2 */) \
-	COLOR_X(COLOR_VIM,          28  /* Green4 */) \
+	COLOR_X(COLOR_VIDEO,         45)  /* Turquoise2 */ \
+	COLOR_X(COLOR_VIDEO1,       226)  /* Yellow1 */ \
+	COLOR_X(COLOR_AUDIO,        220)  /* Gold1 */ \
+	COLOR_X(COLOR_AUDIO1,       205)  /* HotPink */ \
+	COLOR_X(COLOR_IMAGE,         82)  /* Chartreuse2 */ \
+	COLOR_X(COLOR_DOCS,         202)  /* OrangeRed1 */ \
+	COLOR_X(COLOR_ARCHIVE,      209)  /* Salmon1 */ \
+	COLOR_X(COLOR_C,             81)  /* SteelBlue1 */ \
+	COLOR_X(COLOR_JAVA,          32)  /* DeepSkyBlue3 */ \
+	COLOR_X(COLOR_JAVASCRIPT,    47)  /* SpringGreen2 */ \
+	COLOR_X(COLOR_REACT,         39)  /* DeepSkyBlue1 */ \
+	COLOR_X(COLOR_CSS,          199)  /* DeepPink1 */ \
+	COLOR_X(COLOR_PYTHON,       227)  /* LightGoldenrod1 */ \
+	COLOR_X(COLOR_LUA,           19)  /* Blue3 */ \
+	COLOR_X(COLOR_DOCUMENT,      15)  /* White */ \
+	COLOR_X(COLOR_FSHARP,        31)  /* DeepSkyBlue3 */ \
+	COLOR_X(COLOR_RUBY,         160)  /* Red3 */ \
+	COLOR_X(COLOR_SCALA,        196)  /* Red1 */ \
+	COLOR_X(COLOR_SHELL,         47)  /* SpringGreen2 */ \
+	COLOR_X(COLOR_VIM,           28)  /* Green4 */ \
 
+/* X-Macro: https://en.wikipedia.org/wiki/X_Macro */
 #define COLOR_X(N, V) N = V,
 enum { COLOR_LIST };
 #undef COLOR_X
@@ -153,6 +159,10 @@ static const unsigned char init_colors[] = { COLOR_LIST };
 #undef COLOR_X
 
 #ifdef ICONS_GENERATE
+	/* temporary struct using `char *`. the hash-table generator will
+	 * output a more optimized version which uses `char[]` instead reducing
+	 * indirection and the total binary size.
+	 */
 	struct icon_pair { const char *match; const char *icon; unsigned char color; };
 #endif
 

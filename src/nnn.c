@@ -6473,7 +6473,7 @@ static void redraw(char *path)
 	if (curscroll > 0) {
 		move(1, 0);
 #ifdef ICONS_ENABLED
-		addstr(MD_ARROW_UPWARD);
+		addstr(ICON_ARROW_UP);
 #else
 		addch('^');
 #endif
@@ -6510,7 +6510,7 @@ static void redraw(char *path)
 	if (onscreen < ndents) {
 		move(xlines - 2, 0);
 #ifdef ICONS_ENABLED
-		addstr(MD_ARROW_DOWNWARD);
+		addstr(ICON_ARROW_DOWN);
 #else
 		addch('v');
 #endif

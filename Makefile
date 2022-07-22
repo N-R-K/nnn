@@ -197,7 +197,7 @@ ifeq ($(strip $(O_NERD)),1)
 	HEADERS += src/icons.h src/icons-generated.h
 endif
 ifeq ($(strip $(O_ICONS)),1)
-	HEADERS += src/icons.h src/icons-generated.h
+	HEADERS += src/icons.h src/icons-generated.h src/icons-in-terminal.h
 endif
 
 all: $(BIN)

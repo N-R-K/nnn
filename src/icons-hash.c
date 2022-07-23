@@ -41,7 +41,7 @@
 #define ICONS_PROBE_MAX_ALLOWED 6
 #define ICONS_MATCH_MAX (512)
 
-#if 0 /* for logging some interesting info to stderr */
+#if 1 /* for logging some interesting info to stderr */
 	#define log(...)  fprintf(stderr, "[INFO]: " __VA_ARGS__)
 #else
 	#define log(...) ((void)0)

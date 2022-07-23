@@ -71,6 +71,7 @@
 #define ICON_FSHARP        ICON_STR(DEV_FSHARP, "", "")
 #define ICON_FONT          ICON_STR(FILE_FONT, "", "🔤")
 #define ICON_GIT           ICON_STR(FA_GIT, "", "🌱")
+#define ICON_GIT_LOGO      ICON_STR("", "", "")
 #define ICON_HASKELL       ICON_STR("", "", "")
 #define ICON_HTML          ICON_STR(FA_FILE_CODE_O, "󰌝", "🌍")
 #define ICON_JAVA          ICON_STR(MFIZZ_JAVA, "", "☕")
@@ -99,7 +100,7 @@
 #define ICON_SUBTITLE      ICON_STR(FA_COMMENTS_O, "󰅺", "💬")
 #define ICON_TEMPLATES     ICON_STR(FA_PAPERCLIP, "󰗇", "📎")
 #define ICON_TEX           ICON_STR(FILE_TEX, "󰙩", ICON_DOCUMENT)
-#define ICON_VIDEOFILE     ICON_STR(FA_FILE_MOVIE_O, "󰈫", "🎞 ")
+#define ICON_VIDEOFILE     ICON_STR(FA_FILE_MOVIE_O, "󰟞", "🎞 ")
 #define ICON_VIDEOS        ICON_STR(FA_FILM, "󰈰", "🎬")
 #define ICON_VIM           ICON_STR(DEV_VIM, "", "")
 #define ICON_WORDDOC       ICON_STR(FILE_WORD, "󰈬", "📘")
@@ -136,9 +137,7 @@
  */
 #define COLOR_LIST \
 	COLOR_X(COLOR_VIDEO,         45)  /* Turquoise2 */ \
-	COLOR_X(COLOR_VIDEO1,       226)  /* Yellow1 */ \
 	COLOR_X(COLOR_AUDIO,        220)  /* Gold1 */ \
-	COLOR_X(COLOR_AUDIO1,       205)  /* HotPink */ \
 	COLOR_X(COLOR_IMAGE,         82)  /* Chartreuse2 */ \
 	COLOR_X(COLOR_DOCS,         202)  /* OrangeRed1 */ \
 	COLOR_X(COLOR_ARCHIVE,      209)  /* Salmon1 */ \
@@ -148,7 +147,6 @@
 	COLOR_X(COLOR_REACT,         39)  /* DeepSkyBlue1 */ \
 	COLOR_X(COLOR_CSS,          199)  /* DeepPink1 */ \
 	COLOR_X(COLOR_PYTHON,       227)  /* LightGoldenrod1 */ \
-	COLOR_X(COLOR_LUA,           19)  /* Blue3 */ \
 	COLOR_X(COLOR_DOCUMENT,      15)  /* White */ \
 	COLOR_X(COLOR_FSHARP,        31)  /* DeepSkyBlue3 */ \
 	COLOR_X(COLOR_RUBY,         160)  /* Red3 */ \
@@ -181,6 +179,7 @@ static const struct icon exec_icon = {ICON_EXEC, 0};
 
 static const struct icon_pair icons_name[] = {
 	{".git",        ICON_GIT,       0},
+	{".gitignore",  ICON_GIT_LOGO,  COLOR_DOCS},
 	{"Desktop",     ICON_DESKTOP,   0},
 	{"Documents",   ICON_BRIEFCASE, 0},
 	{"Downloads",   ICON_DOWNLOADS, 0},
@@ -269,7 +268,7 @@ static const struct icon_pair icons_ext[] = { /* All entries are case-insensitiv
 	/* F */
 	{"f#",         ICON_FSHARP,         COLOR_FSHARP},
 	{"fen",        ICON_CHESS,          0},
-	{"flac",       ICON_MUSICFILE,      COLOR_AUDIO1},
+	{"flac",       ICON_MUSICFILE,      COLOR_AUDIO},
 	{"flv",        ICON_VIDEOFILE,      COLOR_VIDEO},
 	{"fs",         ICON_FSHARP,         COLOR_FSHARP},
 	{"fsi",        ICON_FSHARP,         COLOR_FSHARP},
@@ -320,7 +319,7 @@ static const struct icon_pair icons_ext[] = { /* All entries are case-insensitiv
 	{"lha",        ICON_ARCHIVE,        COLOR_ARCHIVE},
 	{"lhs",        ICON_HASKELL,        COLOR_VIM},
 	{"log",        ICON_DOCUMENT,       0},
-	{"lua",        ICON_EXT_LUA,        COLOR_LUA},
+	{"lua",        ICON_EXT_LUA,        COLOR_FSHARP},
 	{"lz",         ICON_ARCHIVE,        COLOR_ARCHIVE},
 	{"lzh",        ICON_ARCHIVE,        COLOR_ARCHIVE},
 	{"lzma",       ICON_ARCHIVE,        COLOR_ARCHIVE},
@@ -336,7 +335,7 @@ static const struct icon_pair icons_ext[] = { /* All entries are case-insensitiv
 	{"mkv",        ICON_VIDEOFILE,      COLOR_VIDEO},
 	{"mov",        ICON_VIDEOFILE,      COLOR_VIDEO},
 	{"mp3",        ICON_MUSICFILE,      COLOR_AUDIO},
-	{"mp4",        ICON_VIDEOFILE,      COLOR_VIDEO1},
+	{"mp4",        ICON_VIDEOFILE,      COLOR_VIDEO},
 	{"mpeg",       ICON_VIDEOFILE,      COLOR_VIDEO},
 	{"mpg",        ICON_VIDEOFILE,      COLOR_VIDEO},
 	{"msi",        ICON_EXT_MSI,        0},

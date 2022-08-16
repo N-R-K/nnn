@@ -8411,13 +8411,12 @@ int main(int argc, char *argv[])
 			g_state.picker = 1;
 			if (!(optarg[0] == '-' && optarg[1] == '\0')) {
 				fd = open(optarg, O_WRONLY | O_CREAT, 0600);
-				if (fd == -1) {
+				selpath = abspath(optarg, NULL, NULL);
+				if (fd == -1 || selpath == NULL) {
 					xerror();
 					return EXIT_FAILURE;
 				}
-
 				close(fd);
-				selpath = abspath(optarg, NULL, NULL);
 				unlink(selpath);
 			}
 			break;

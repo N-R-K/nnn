@@ -26,7 +26,7 @@ CFLAGS_OPTIMIZATION ?= $(OFLAGS)
 
 O_DEBUG := 0  # debug binary
 O_NORL := 1  # no readline support
-O_PCRE := 0  # link with PCRE library
+O_PCRE := 1  # link with PCRE library
 O_NOLC := 0  # no locale support
 O_NOMOUSE := 1  # no mouse support
 O_NOBATCH := 1  # no built-in batch renamer

@@ -18,9 +18,10 @@ O_NOCOMMON    = -fno-common
 O_NOPLT       = -fno-plt
 O_NOPIE       = -no-pie
 O_NOSSP       = -fno-stack-protector
+NO_FORTIFY    = -U _FORTIFY_SOURCE
 OFLAGS = $(O_BASIC) $(O_LTO) $(O_GRAPHITE) $(O_IPAPTA) \
          $(O_SEMINTERPOS) $(O_NOCOMMON) $(O_NOPLT) \
-         $(O_NOPIE) $(O_NOSSP) \
+         $(O_NOPIE) $(O_NOSSP) $(NO_FORTIFY) \
 
 CFLAGS_OPTIMIZATION ?= $(OFLAGS)
 

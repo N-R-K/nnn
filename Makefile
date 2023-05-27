@@ -10,7 +10,7 @@ INSTALL ?= install
 CP ?= cp
 
 O_BASIC       = -pipe -march=native -Ofast
-O_LTO         = -flto=auto -fuse-linker-plugin
+O_WHOLEPROG   = -fwhole-program
 O_GRAPHITE    = -fgraphite-identity -floop-nest-optimize
 O_IPAPTA      = -fipa-pta
 O_SEMINTERPOS = -fno-semantic-interposition
@@ -19,7 +19,7 @@ O_NOPLT       = -fno-plt
 O_NOPIE       = -no-pie
 O_NOSSP       = -fno-stack-protector
 NO_FORTIFY    = -U _FORTIFY_SOURCE
-OFLAGS = $(O_BASIC) $(O_LTO) $(O_GRAPHITE) $(O_IPAPTA) \
+OFLAGS = $(O_BASIC) $(O_WHOLEPROG) $(O_GRAPHITE) $(O_IPAPTA) \
          $(O_SEMINTERPOS) $(O_NOCOMMON) $(O_NOPLT) \
          $(O_NOPIE) $(O_NOSSP) $(NO_FORTIFY) \
 

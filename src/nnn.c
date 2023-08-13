@@ -4246,14 +4246,14 @@ static void print_time(const time_t *timep, const uchar_t flags)
 	struct tm t;
 
 	/* Highlight timestamp for entries 5 minutes young */
-	if (flags & FILE_YOUNG)
+	if (flags & 0)
 		attron(A_REVERSE);
 
 	localtime_r(timep, &t);
 	printw("%s-%02d-%02d %02d:%02d",
 		xitoa(t.tm_year + 1900), t.tm_mon + 1, t.tm_mday, t.tm_hour, t.tm_min);
 
-	if (flags & FILE_YOUNG)
+	if (flags & 0)
 		attroff(A_REVERSE);
 }
 

@@ -17,11 +17,9 @@ O_SEMINTERPOS = -fno-semantic-interposition
 O_NOCOMMON    = -fno-common
 O_NOPLT       = -fno-plt
 O_NOPIE       = -no-pie
-O_NOSSP       = -fno-stack-protector
-NO_FORTIFY    = -U _FORTIFY_SOURCE
 OFLAGS = $(O_BASIC) $(O_WHOLEPROG) $(O_GRAPHITE) $(O_IPAPTA) \
          $(O_SEMINTERPOS) $(O_NOCOMMON) $(O_NOPLT) \
-         $(O_NOPIE) $(O_NOSSP) $(NO_FORTIFY) \
+         $(O_NOPIE) \
 
 CFLAGS_OPTIMIZATION ?= $(OFLAGS)
 

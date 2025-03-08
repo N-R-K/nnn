@@ -4378,7 +4378,7 @@ static void printent(int pdents_index, uint_t namecols, bool sel)
 	}
 
 	if (sel)
-		attrs |= A_REVERSE | A_BOLD;
+		attrs |= A_REVERSE;
 	if (attrs)
 		attron(attrs);
 	if (!ind)
